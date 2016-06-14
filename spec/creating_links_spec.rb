@@ -15,5 +15,4 @@ feature 'Create links' do
     end
   end
 
-  
 end
