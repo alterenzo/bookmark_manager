@@ -1,12 +1,14 @@
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
+require './app/app'
 require 'rspec'
+require './app/models/link'
 
-Capybara.app = Bookmark
+Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   config.include Capybara::DSL
