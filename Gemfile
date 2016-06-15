@@ -4,6 +4,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem "capybara"
 gem "sinatra"
+gem "sinatra-flash"
 gem "rspec-sinatra"
 gem "rspec"
 gem "rake"
