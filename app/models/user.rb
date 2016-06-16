@@ -6,7 +6,7 @@ class User
 
 	include DataMapper::Resource
 
-	validates_format_of :email, as: :email_address
+	# validates_format_of :email, as: :email_address
 	validates_confirmation_of :password
 
 	property :id, Serial
