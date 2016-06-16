@@ -1,4 +1,4 @@
-def sign_in(email: 'joe.bloggs@email.com',
+def sign_up(email: 'joe.bloggs@email.com',
             password: 'strongpassword',
             password_confirmation: 'strongpassword')
   visit '/users/new'

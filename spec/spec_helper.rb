@@ -10,11 +10,14 @@ require 'rspec'
 require 'database_cleaner'
 require 'features/web_helper'
 
+require_relative './helpers/session.rb'
+
 Capybara.app = Bookmarks
 
 RSpec.configure do |config|
 
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -23,9 +26,6 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
-end
-
-RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

@@ -8,6 +8,7 @@ require_relative 'data_mapper_setup.rb'
 class Bookmarks < Sinatra::Base
 
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, "super secret"
@@ -68,7 +69,7 @@ class Bookmarks < Sinatra::Base
   end
 
   get '/sessions/new' do
-    erb :'sessions/new_sessions'
+    erb :'sessions/new'
   end
 
   post '/sessions' do
@@ -80,6 +81,12 @@ class Bookmarks < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect '/links'
   end
 
 
