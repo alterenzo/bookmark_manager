@@ -26,7 +26,9 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/users/password_reset' do
-    if User.first(email: params[:email])
+    user = User.first(email: params[:email])
+    if user
+      user.generate_token
       flash.keep[:notice] = 'Please check your email for further instructions'
       redirect to('/sessions/new')
     else

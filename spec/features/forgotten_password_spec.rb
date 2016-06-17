@@ -1,12 +1,20 @@
 feature 'resetting password' do
 
+  before do
+    sign_up
+    Capybara.reset!
+  end
+
+  let(:user) { User.first }
+
+
 	scenario 'user can reset the password if it is forgotton' do
 		visit('/sessions/new')
 		click_button('Forgot password')
 		expect(page).to have_content("Please enter your email address")
 	end
 
-	let!(:user) do
+	let!(:registered_user) do
 		User.create(email: 'user@example.com',
 		password: 'secret1234', password_confirmation: 'secret1234')
 	end

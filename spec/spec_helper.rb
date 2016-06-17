@@ -10,6 +10,7 @@ require './app/models/link'
 require 'database_cleaner'
 require_relative 'web_helper'
 
+
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|

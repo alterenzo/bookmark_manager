@@ -15,5 +15,9 @@ describe User do
       expect(User.authenticate(user.email, '4321')).to eq nil
   end
 
+  it 'saves a password recovery token when we generate a token' do
+    expect{ user.generate_token }.to change{ user.password_token }
+  end
+
 
 end
