@@ -21,5 +21,18 @@ class BookmarkManager < Sinatra::Base
     erb :'users/new'
   end
 
+  get '/users/password_reset' do
+    erb :'users/password_reset'
+  end
+
+  post '/users/password_reset' do
+    if User.first(email: params[:email])
+      flash.keep[:notice] = 'Please check your email for further instructions'
+      redirect to('/sessions/new')
+    else
+      flash.keep[:notice] = 'Email not found, please re-enter your email.'
+      redirect to('/users/password_reset')
+    end
+  end
 
 end
