@@ -4,6 +4,6 @@
 Welcome, <%= current_user.email %>
 <form action="/sessions" method="post">
   <input type="submit" value="Sign out">
-  <input type="invisible" name="_method" value="delete">
+  <input type="hidden" name="_method" value="delete">
 </form>
 <%end %>

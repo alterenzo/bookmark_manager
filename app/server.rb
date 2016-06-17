@@ -12,9 +12,9 @@ class BookmarkManager < Sinatra::Base
 
   enable :partial_underscores
 
-  # get '/' do
-  #   redirect '/users/new'
-  # end
+  get '/' do
+    redirect '/users/new'
+  end
 
   helpers do
     def current_user
