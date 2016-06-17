@@ -1,0 +1,16 @@
+<h1>Registration</h1>
+<form action="/users" method="POST">
+<label for="email">
+  Email:
+  <input type="email" name="email" value='<%= @user.email %>' required>
+</label>
+<label for="password">
+  Password:
+  <input type="text" name="password">
+</label>
+<label for="password_confirmation">
+  Password Confirm:
+  <input type="text" name="password_confirmation">
+</label>
+<input type="submit" value="Sign in">
+</form>
